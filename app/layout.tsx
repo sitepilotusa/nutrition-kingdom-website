@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   description:
     "Protein Shakes & Mega Teas in Lakewood, CO. Energy teas, waffles, and açaí bowls.",
   alternates: {
-    canonical: "/",
+    canonical: "https://nutritionkingdom.sitepilotpreflight.com",
   },
   icons: {
     icon: "/favicon.ico",
