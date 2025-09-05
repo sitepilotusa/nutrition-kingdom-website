@@ -37,11 +37,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.sitepilotpreflight.com"),
   applicationName: "Nutrition Kingdom",
   title: {
-    default: "Nutrition Kingdom",
+    default: "Nutrition Kingdom | Protein Shakes & Energy Teas Lakewood CO",
     template: "%s | Nutrition Kingdom",
   },
   description:
-    "Protein Shakes & Mega Teas in Lakewood, CO. Energy teas, waffles, and açaí bowls.",
+    "Visit Nutrition Kingdom in Lakewood, CO for protein shakes, energy teas, waffles, and açaí bowls. Fresh, healthy, and made to fuel your day.",
   alternates: {
     canonical: process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.sitepilotpreflight.com",
   },
@@ -69,9 +69,9 @@ export const metadata: Metadata = {
     email: false,
   },
   openGraph: {
-    title: "Nutrition Kingdom",
+    title: "Nutrition Kingdom | Protein Shakes & Energy Teas Lakewood CO",
     description:
-      "Protein Shakes & Mega Teas in Lakewood, CO. Energy teas, waffles, and açaí bowls.",
+      "Visit Nutrition Kingdom in Lakewood, CO for protein shakes, energy teas, waffles, and açaí bowls. Fresh, healthy, and made to fuel your day.",
     url: process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.club",
     siteName: "Nutrition Kingdom",
     images: [
@@ -87,9 +87,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nutrition Kingdom",
+    title: "Nutrition Kingdom | Protein Shakes & Energy Teas Lakewood CO",
     description:
-      "Protein Shakes & Mega Teas in Lakewood, CO. Energy teas, waffles, and açaí bowls.",
+      "Visit Nutrition Kingdom in Lakewood, CO for protein shakes, energy teas, waffles, and açaí bowls. Fresh, healthy, and made to fuel your day.",
     images: ["/images/social-share-image.jpg"],
   },
 };
