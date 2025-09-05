@@ -41,7 +41,7 @@ export default function Home() {
 
             <div className="space-y-4 text-center md:text-left">
               <p className="text-xl text-gray-700 leading-relaxed font-semibold">
-                Lakewood's Home for Protein Shakes, Energy Teas, Waffles & Açaí Bowls
+                Lakewood&apos;s Home for Protein Shakes, Energy Teas, Waffles & Açaí Bowls
               </p>
             </div>
 

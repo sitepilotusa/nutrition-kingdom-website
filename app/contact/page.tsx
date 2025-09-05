@@ -34,7 +34,7 @@ export default function ContactPage() {
             Contact Us
           </h1>
           <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-            We'd love to hear from you! Visit us in Lakewood, give us a call, or send us a message.
+            We&apos;d love to hear from you! Visit us in Lakewood, give us a call, or send us a message.
           </p>
         </div>
       </section>
@@ -152,7 +152,7 @@ export default function ContactPage() {
             <h2 className="font-lemon gradient-brand text-3xl md:text-4xl font-bold mb-4">
               Send Us a Message
             </h2>
-            <p className="text-gray-600">Have questions? Want to know more about our products? We'd love to hear from you!</p>
+            <p className="text-gray-600">Have questions? Want to know more about our products? We&apos;d love to hear from you!</p>
           </div>
           
           <div className="max-w-2xl mx-auto">
