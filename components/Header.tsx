@@ -8,15 +8,15 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur border-b border-slate-200" style={{backgroundColor: 'rgba(248, 250, 252, 0.95)'}}>
-      <div className="container-max mx-auto px-6 h-20 flex items-center justify-between">
-        <Link href="/" className="font-lemon gradient-brand text-3xl font-bold">
+      <div className="container-max mx-auto px-6 h-20 md:h-20 flex items-center justify-between min-h-[80px]">
+        <Link href="/" className="font-lemon gradient-brand text-xl sm:text-2xl md:text-3xl font-bold">
           Nutrition Kingdom
         </Link>
 
-        <nav aria-label="Primary" className="flex items-center gap-2">
+        <nav aria-label="Primary" className="flex items-center gap-1 sm:gap-2">
           <Link
             href="/menu"
-            className={`px-3 py-2 rounded-lg text-base font-medium transition-all duration-300 ${
+            className={`px-2 py-2 sm:px-3 rounded-lg text-sm sm:text-base font-medium transition-all duration-300 ${
               pathname === "/menu" 
                 ? "nav-btn-active" 
                 : "nav-btn-default"
@@ -27,7 +27,7 @@ export default function Header() {
           </Link>
           <Link
             href="/contact"
-            className={`px-3 py-2 rounded-lg text-base font-medium transition-all duration-300 ${
+            className={`px-2 py-2 sm:px-3 rounded-lg text-sm sm:text-base font-medium transition-all duration-300 ${
               pathname === "/contact" 
                 ? "nav-btn-active" 
                 : "nav-btn-default"
