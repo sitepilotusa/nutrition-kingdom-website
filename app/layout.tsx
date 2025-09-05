@@ -34,7 +34,7 @@ const lemonMilk = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.club"),
+  metadataBase: new URL("https://nutritionkingdom.sitepilotpreflight.com"),
   applicationName: "Nutrition Kingdom",
   title: {
     default: "Nutrition Kingdom",
@@ -105,8 +105,8 @@ const localBusinessSchema = {
   "@type": "LocalBusiness",
   name: "Nutrition Kingdom",
   telephone: "+1-303-862-9470",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.club",
-  image: `${process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.club"}/images/social-share-image.jpg`,
+  url: "https://nutritionkingdom.sitepilotpreflight.com",
+  image: "https://nutritionkingdom.sitepilotpreflight.com/images/social-share-image.jpg",
   address: {
     "@type": "PostalAddress",
     streetAddress: "1535 S Kipling Pkwy Unit G",
