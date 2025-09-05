@@ -49,7 +49,6 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
-    android: "/android-chrome-192x192.png",
   },
   manifest: "/site.webmanifest",
   verification: {
