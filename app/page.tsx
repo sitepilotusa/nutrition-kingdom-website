@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main id="main-content" className="font-sans">
       <section className="hero-section">
-        <div className="container-max mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-h-[80vh]">
+        <div className="container-max mx-auto px-6 pt-7 pb-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-h-[80vh]">
           <div className="space-y-8">
             <div className="space-y-4 text-center md:text-left">
               <div className="space-y-4 my-8">
