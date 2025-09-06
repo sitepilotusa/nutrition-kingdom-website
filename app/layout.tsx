@@ -98,10 +98,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  viewportFit: "cover", // Important for iOS Safari
   themeColor: "#16a34a",
-  // Additional Safari iOS fixes
-  shrinkToFit: "no",
 };
 
 const localBusinessSchema = {
@@ -157,47 +154,6 @@ export default function RootLayout({
         <Script id="ld-json" type="application/ld+json">
           {JSON.stringify(localBusinessSchema)}
         </Script>
-        {/* Safari iOS viewport fix - Alternative sticky approach */}
-        <Script
-          id="safari-ios-fix"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                // Detect Safari iOS
-                var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) && /iPad|iPhone|iPod/.test(navigator.userAgent);
-                if (!isSafari) return;
-
-                // Use sticky positioning for Safari instead of fixed
-                var fixSafariHeader = function() {
-                  var header = document.querySelector('header');
-                  if (header && window.innerWidth < 768) {
-                    // Use sticky positioning which Safari handles better
-                    header.style.position = '-webkit-sticky';
-                    header.style.position = 'sticky';
-                    header.style.top = 'env(safe-area-inset-top, 0px)';
-                    header.style.zIndex = '50';
-                    header.style.webkitTransform = 'translateZ(0)';
-                    header.style.transform = 'translateZ(0)';
-                  }
-                };
-
-                // Apply fix immediately and on viewport changes
-                fixSafariHeader();
-
-                if (window.visualViewport) {
-                  window.visualViewport.addEventListener('resize', fixSafariHeader);
-                }
-
-                // Fix on orientation change and resize
-                window.addEventListener('orientationchange', function() {
-                  setTimeout(fixSafariHeader, 100);
-                });
-
-                window.addEventListener('resize', fixSafariHeader);
-              })();
-            `,
-          }}
-        />
       </head>
       <body>
         <a href="#main-content" className="skip-link">Skip to main content</a>
