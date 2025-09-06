@@ -62,7 +62,6 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
-  themeColor: "#16a34a",
   formatDetection: {
     telephone: true,
     address: true,
