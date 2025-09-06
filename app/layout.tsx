@@ -101,6 +101,8 @@ export const viewport: Viewport = {
   userScalable: true,
   viewportFit: "cover", // Important for iOS Safari
   themeColor: "#16a34a",
+  // Additional Safari iOS fixes
+  shrinkToFit: "no",
 };
 
 const localBusinessSchema = {
@@ -156,6 +158,45 @@ export default function RootLayout({
         <Script id="ld-json" type="application/ld+json">
           {JSON.stringify(localBusinessSchema)}
         </Script>
+        {/* Safari iOS viewport fix */}
+        <Script
+          id="safari-ios-fix"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                // Detect Safari iOS
+                var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) && /iPad|iPhone|iPod/.test(navigator.userAgent);
+                if (!isSafari) return;
+
+                // Prevent Safari from adjusting viewport on scroll
+                var viewport = document.querySelector('meta[name="viewport"]');
+                if (viewport) {
+                  viewport.setAttribute('content', viewport.getAttribute('content') + ', shrink-to-fit=no');
+                }
+
+                // Force header stability on Safari iOS
+                var fixHeader = function() {
+                  var header = document.querySelector('header');
+                  if (header) {
+                    header.style.transform = 'translateZ(0)';
+                    header.style.webkitTransform = 'translateZ(0)';
+                  }
+                };
+
+                // Listen for Safari's visual viewport changes
+                if (window.visualViewport) {
+                  window.visualViewport.addEventListener('resize', fixHeader);
+                  window.visualViewport.addEventListener('scroll', fixHeader);
+                }
+
+                // Fix on orientation change
+                window.addEventListener('orientationchange', function() {
+                  setTimeout(fixHeader, 100);
+                });
+              })();
+            `,
+          }}
+        />
       </head>
       <body>
         <a href="#main-content" className="skip-link">Skip to main content</a>
