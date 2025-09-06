@@ -130,6 +130,45 @@ html {
   min-height: fill-available !important;
 }
 
+/* Safari iOS sticky header - alternative approach */
+.safari-ios-sticky-header {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 50 !important;
+  /* Use environment variables for safe area */
+  top: env(safe-area-inset-top, 0px) !important;
+  /* Safari-specific backdrop filter */
+  -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
+  background-color: rgba(248, 250, 252, 0.95) !important;
+  /* Prevent Safari from changing position */
+  -webkit-transform: translateZ(0) !important;
+  transform: translateZ(0) !important;
+  /* Ensure it stays at top */
+  margin-top: 0 !important;
+  /* Force hardware acceleration */
+  will-change: transform !important;
+  /* Safari-specific containment */
+  contain: layout style !important;
+}
+
+/* Ultimate Safari fallback - use absolute positioning within a relative container */
+@supports (-webkit-touch-callout: none) {
+  .safari-ios-sticky-header {
+    /* Safari prefers this approach */
+    position: sticky !important;
+    -webkit-position: sticky !important;
+    /* Use CSS environment variables for viewport */
+    top: max(env(safe-area-inset-top), 0px) !important;
+    /* Prevent any layout shifts */
+    height: 80px !important;
+    /* Force Safari to respect this positioning */
+    -webkit-transform-style: preserve-3d !important;
+    transform-style: preserve-3d !important;
+  }
+}
+
 /* Ensure smooth scrolling and prevent bounce effects on iOS */
 @supports (-webkit-touch-callout: none) {
   body {

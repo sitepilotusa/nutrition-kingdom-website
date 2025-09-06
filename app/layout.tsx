@@ -157,7 +157,7 @@ export default function RootLayout({
         <Script id="ld-json" type="application/ld+json">
           {JSON.stringify(localBusinessSchema)}
         </Script>
-        {/* Safari iOS viewport fix */}
+        {/* Safari iOS viewport fix - Alternative sticky approach */}
         <Script
           id="safari-ios-fix"
           dangerouslySetInnerHTML={{
@@ -167,31 +167,33 @@ export default function RootLayout({
                 var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) && /iPad|iPhone|iPod/.test(navigator.userAgent);
                 if (!isSafari) return;
 
-                // Prevent Safari from adjusting viewport on scroll
-                var viewport = document.querySelector('meta[name="viewport"]');
-                if (viewport) {
-                  viewport.setAttribute('content', viewport.getAttribute('content') + ', shrink-to-fit=no');
-                }
-
-                // Force header stability on Safari iOS
-                var fixHeader = function() {
+                // Use sticky positioning for Safari instead of fixed
+                var fixSafariHeader = function() {
                   var header = document.querySelector('header');
-                  if (header) {
-                    header.style.transform = 'translateZ(0)';
+                  if (header && window.innerWidth < 768) {
+                    // Use sticky positioning which Safari handles better
+                    header.style.position = '-webkit-sticky';
+                    header.style.position = 'sticky';
+                    header.style.top = 'env(safe-area-inset-top, 0px)';
+                    header.style.zIndex = '50';
                     header.style.webkitTransform = 'translateZ(0)';
+                    header.style.transform = 'translateZ(0)';
                   }
                 };
 
-                // Listen for Safari's visual viewport changes
+                // Apply fix immediately and on viewport changes
+                fixSafariHeader();
+
                 if (window.visualViewport) {
-                  window.visualViewport.addEventListener('resize', fixHeader);
-                  window.visualViewport.addEventListener('scroll', fixHeader);
+                  window.visualViewport.addEventListener('resize', fixSafariHeader);
                 }
 
-                // Fix on orientation change
+                // Fix on orientation change and resize
                 window.addEventListener('orientationchange', function() {
-                  setTimeout(fixHeader, 100);
+                  setTimeout(fixSafariHeader, 100);
                 });
+
+                window.addEventListener('resize', fixSafariHeader);
               })();
             `,
           }}

@@ -69,22 +69,23 @@ export default function Header() {
 
   return (
     <header
-      className={`${isMobile ? `mobile-header-fix ${isSafari ? 'safari-ios-header' : ''}` : 'sticky top-0'} z-50 backdrop-blur border-b border-slate-200 md:h-20`}
+      className={`${isMobile ? (isSafari ? 'safari-ios-sticky-header' : 'mobile-header-fix') : 'sticky top-0'} z-50 backdrop-blur border-b border-slate-200 md:h-20`}
       style={{
         backgroundColor: 'rgba(248, 250, 252, 0.95)',
-        // Aggressive Safari-specific fixes for iOS header jumping
-        WebkitBackdropFilter: 'blur(10px)',
-        backdropFilter: 'blur(10px)',
-        WebkitTransform: 'translateZ(0)',
-        transform: 'translateZ(0)',
-        // Additional Safari iOS fixes
-        ...(isSafari && {
-          WebkitBackfaceVisibility: 'hidden',
-          backfaceVisibility: 'hidden' as const,
-          WebkitPerspective: 1000,
-          perspective: 1000,
-          contain: 'layout style paint',
-          willChange: 'transform',
+        // Safari-specific approach: use sticky instead of fixed for better compatibility
+        ...(isSafari && isMobile ? {
+          position: 'sticky',
+          top: 0,
+          WebkitPosition: 'sticky',
+          WebkitBackdropFilter: 'blur(10px)',
+          backdropFilter: 'blur(10px)',
+          // Use CSS custom properties for dynamic viewport height
+          top: 'env(safe-area-inset-top)',
+        } : {
+          WebkitBackdropFilter: 'blur(10px)',
+          backdropFilter: 'blur(10px)',
+          WebkitTransform: 'translateZ(0)',
+          transform: 'translateZ(0)',
         }),
       }}
     >
