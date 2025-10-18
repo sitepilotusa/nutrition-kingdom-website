@@ -34,7 +34,7 @@ const lemonMilk = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.sitepilotpreflight.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.club"),
   applicationName: "Nutrition Kingdom",
   title: {
     default: "Nutrition Kingdom | Protein Shakes & Energy Teas Lakewood CO",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   description:
     "Visit Nutrition Kingdom in Lakewood, CO for protein shakes, energy teas, waffles, and açaí bowls. Fresh, healthy, and made to fuel your day.",
   alternates: {
-    canonical: process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.sitepilotpreflight.com",
+    canonical: process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.club",
   },
   icons: {
     icon: "/favicon.ico",
@@ -106,8 +106,8 @@ const localBusinessSchema = {
   "@type": "LocalBusiness",
   name: "Nutrition Kingdom",
   telephone: "+1-303-862-9470",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.sitepilotpreflight.com",
-  image: `${process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.sitepilotpreflight.com"}/images/social-share-image.jpg`,
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.club",
+  image: `${process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.club"}/images/social-share-image.jpg`,
   address: {
     "@type": "PostalAddress",
     streetAddress: "1535 S Kipling Pkwy Unit G",
