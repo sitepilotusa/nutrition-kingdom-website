@@ -37,6 +37,16 @@ body {
     "Noto Color Emoji";
 }
 
+body.no-chrome header,
+body.no-chrome footer,
+body.no-chrome .hours-badge {
+  display: none !important;
+}
+
+body.no-chrome {
+  margin: 0;
+}
+
 /* Fix for mobile viewport changes affecting sticky header */
 html {
   /* Use stable viewport units that don't change when address bar shows/hides */

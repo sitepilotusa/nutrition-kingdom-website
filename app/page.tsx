@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import LazyGoogleMap from "@/components/LazyGoogleMap";
 
 export const metadata = {
   title: "Protein Shakes & Mega Teas in Lakewood, CO",
@@ -83,18 +84,11 @@ export default function Home() {
           </h2>
           
           <div className="max-w-4xl mx-auto">
-            <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-green-500">
-              <iframe
-                src="https://maps.google.com/maps?q=Nutrition%20Kingdom,1535%20S%20Kipling%20Pkwy%20Unit%20G,%20Lakewood,%20CO%2080232&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                width="100%"
-                height="100%"
-                style={{border: 0}}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Nutrition Kingdom Location"
-              ></iframe>
-            </div>
+            <LazyGoogleMap
+              src="https://maps.google.com/maps?q=Nutrition%20Kingdom,1535%20S%20Kipling%20Pkwy%20Unit%20G,%20Lakewood,%20CO%2080232&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              title="Nutrition Kingdom Location"
+              className="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-green-500"
+            />
             
             <div className="mt-6 text-center">
               <p className="text-lg text-gray-700 font-semibold">

@@ -16,24 +16,40 @@ export default function HoursBadge() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const footer = document.querySelector('footer');
-      if (footer) {
-        const footerRect = footer.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
+      if (document.body.classList.contains("no-chrome")) {
+        setIsVisible(false);
+        return;
+      }
 
-        // Hide the badge when the footer is visible (within viewport)
-        if (footerRect.top <= windowHeight && footerRect.bottom >= 0) {
-          setIsVisible(false);
-        } else {
-          setIsVisible(true);
-        }
+      const footer = document.querySelector('footer');
+      if (!footer) {
+        setIsVisible(true);
+        return;
+      }
+
+      const footerRect = footer.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      if (footerRect.top <= windowHeight && footerRect.bottom >= 0) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial state
+    const mutationObserver = new MutationObserver(handleScroll);
+    mutationObserver.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    const resizeObserver = new ResizeObserver(handleScroll);
+    resizeObserver.observe(document.body);
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      mutationObserver.disconnect();
+      resizeObserver.disconnect();
+    };
   }, []);
 
   if (!message || !isVisible) return null;
@@ -46,5 +62,3 @@ export default function HoursBadge() {
     </div>
   );
 }
-
-

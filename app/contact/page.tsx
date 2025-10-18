@@ -1,27 +1,58 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
+import LazyGoogleMap from "@/components/LazyGoogleMap";
 
 export default function ContactPage() {
   const formRef = useRef<HTMLDivElement>(null);
+  const scriptRef = useRef<HTMLScriptElement | null>(null);
+  const hasLoadedForm = useRef(false);
 
   useEffect(() => {
-    // Load Cognito Forms script for seamless embedding
-    const script = document.createElement('script');
-    script.src = 'https://www.cognitoforms.com/f/seamless.js';
-    script.setAttribute('data-key', '6bC91qZ8AUioh9fFRWGrCQ');
-    script.setAttribute('data-form', '15');
-    script.async = true;
-    
-    // Add the script to the form container
-    if (formRef.current) {
-      formRef.current.appendChild(script);
+    const container = formRef.current;
+    if (!container) return;
+
+    const loadForm = () => {
+      if (hasLoadedForm.current || !container) return;
+      hasLoadedForm.current = true;
+
+      const script = document.createElement("script");
+      script.src = "https://www.cognitoforms.com/f/seamless.js";
+      script.dataset.key = "6bC91qZ8AUioh9fFRWGrCQ";
+      script.dataset.form = "15";
+      script.async = true;
+
+      container.appendChild(script);
+      scriptRef.current = script;
+    };
+
+    let observer: IntersectionObserver | null = null;
+
+    if ("IntersectionObserver" in window) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            loadForm();
+            observer?.disconnect();
+          }
+        },
+        { rootMargin: "300px 0px" }
+      );
+
+      observer.observe(container);
+    } else {
+      loadForm();
     }
 
     return () => {
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
+      observer?.disconnect();
+      if (scriptRef.current) {
+        scriptRef.current.remove();
+        scriptRef.current = null;
       }
+      const embedContainer = container.querySelector<HTMLElement>(".cognito");
+      embedContainer?.replaceChildren();
+      hasLoadedForm.current = false;
     };
   }, []);
 
@@ -131,18 +162,11 @@ export default function ContactPage() {
           </div>
           
           <div className="max-w-5xl mx-auto">
-            <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-green-500">
-              <iframe
-                title="Nutrition Kingdom location map"
-                src="https://maps.google.com/maps?q=Nutrition%20Kingdom,1535%20S%20Kipling%20Pkwy%20Unit%20G,%20Lakewood,%20CO%2080232&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                width="100%"
-                height="100%"
-                style={{border: 0}}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
+            <LazyGoogleMap
+              src="https://maps.google.com/maps?q=Nutrition%20Kingdom,1535%20S%20Kipling%20Pkwy%20Unit%20G,%20Lakewood,%20CO%2080232&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              title="Nutrition Kingdom location map"
+              className="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-green-500"
+            />
           </div>
         </section>
 
@@ -171,5 +195,3 @@ export default function ContactPage() {
     </main>
   );
 }
-
-
