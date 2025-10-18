@@ -1,9 +1,16 @@
 "use client";
 
 const shakes = [
-  "Strawberry Shortcake", "PB Brownie Batter Cheesecake", "Xs & Os", "Green Monster", 
-  "Cookies N Cream", "Peanut Butter Cup", "Blueberry Muffin", "The Elvis", 
-  "Salted Caramel", "Banana Nutbread"
+  "Triple Berry",
+  "PB & Greens",
+  "Green Monster",
+  "Strawberry Cheesecake",
+  "Peanut Butter Brownie Battered Cheesecake",
+  "Oreo Salted Caramel",
+  "Mango Dragon Fruit",
+  "Captain Crunch",
+  "Orange Mango Passion",
+  "Mint Mocha"
 ];
 
 const teas = [
@@ -44,7 +51,7 @@ const shakeBoosters = [
   { name: "Collagen", price: "$4" },
   { name: "Probiotics", price: "$3" },
   { name: "Active Fiber", price: "$3" },
-  { name: "Niteworks", price: "$6" },
+  { name: "Nitric Oxide", price: "$6" },
   { name: "Immunity", price: "$3.50" }
 ];
 
@@ -85,13 +92,13 @@ export default function MenuPage() {
               Top 10 Protein Shakes
             </h2>
             <div className="pricing-badge">
-              <span className="text-lg font-semibold">$10 Regular • $12 Large • $14 Giant</span>
+              <span className="text-lg font-semibold">$8.50 Kids • $10.50 Regular • $12.50 Large • $14.50 Giant</span>
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {shakes.map((shake, index) => (
               <div key={index} className="menu-card relative">
-                {(shake === "Green Monster" || shake === "PB Brownie Batter Cheesecake") && (
+                {(shake === "Green Monster" || shake === "Peanut Butter Brownie Battered Cheesecake") && (
                   <div className="popular-badge">
                     <span className="text-xs font-bold">⭐ POPULAR</span>
                   </div>
@@ -120,7 +127,7 @@ export default function MenuPage() {
               Top 10 Mega Teas
             </h2>
             <div className="pricing-badge">
-              <span className="text-lg font-semibold">$10 Regular</span>
+              <span className="text-lg font-semibold">$10.50 Regular</span>
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -156,7 +163,7 @@ export default function MenuPage() {
             </h2>
             <p className="text-gray-600 mb-4">Low carb, low sugar</p>
             <div className="pricing-badge">
-              <span className="text-lg font-semibold">$10 Regular • $12 Large • $14 Giant</span>
+              <span className="text-lg font-semibold">$8.50 Kids • $10.50 Regular • $12.50 Large • $14.50 Giant</span>
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -192,7 +199,7 @@ export default function MenuPage() {
             </h2>
             <p className="text-gray-600 mb-4">Ginseng, B vitamins + collagen</p>
             <div className="pricing-badge">
-              <span className="text-lg font-semibold">$10 One Size</span>
+              <span className="text-lg font-semibold">$10.50 One Size</span>
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -233,7 +240,7 @@ export default function MenuPage() {
             </h2>
             <p className="text-gray-600 mb-2">24g protein • 300-400 calories • 21 vitamins & minerals</p>
             <div className="pricing-badge">
-              <span className="text-lg font-semibold">$15 Each</span>
+              <span className="text-lg font-semibold">$16 Each</span>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -273,7 +280,7 @@ export default function MenuPage() {
             </h2>
             <p className="text-gray-600 mb-4">35g protein • All toppings included</p>
             <div className="pricing-badge">
-              <span className="text-lg font-semibold">2 Waffle Order - $18</span>
+              <span className="text-lg font-semibold">2 Waffle Order - $19</span>
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -368,5 +375,3 @@ export default function MenuPage() {
     </main>
   );
 }
-
-
