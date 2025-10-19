@@ -1,61 +1,7 @@
-"use client";
-
-import { useEffect, useRef } from "react";
 import LazyGoogleMap from "@/components/LazyGoogleMap";
+import CognitoFormEmbed from "@/components/CognitoFormEmbed";
 
 export default function ContactPage() {
-  const formRef = useRef<HTMLDivElement>(null);
-  const scriptRef = useRef<HTMLScriptElement | null>(null);
-  const hasLoadedForm = useRef(false);
-
-  useEffect(() => {
-    const container = formRef.current;
-    if (!container) return;
-
-    const loadForm = () => {
-      if (hasLoadedForm.current || !container) return;
-      hasLoadedForm.current = true;
-
-      const script = document.createElement("script");
-      script.src = "https://www.cognitoforms.com/f/seamless.js";
-      script.dataset.key = "6bC91qZ8AUioh9fFRWGrCQ";
-      script.dataset.form = "15";
-      script.async = true;
-
-      container.appendChild(script);
-      scriptRef.current = script;
-    };
-
-    let observer: IntersectionObserver | null = null;
-
-    if ("IntersectionObserver" in window) {
-      observer = new IntersectionObserver(
-        (entries) => {
-          if (entries.some((entry) => entry.isIntersecting)) {
-            loadForm();
-            observer?.disconnect();
-          }
-        },
-        { rootMargin: "300px 0px" }
-      );
-
-      observer.observe(container);
-    } else {
-      loadForm();
-    }
-
-    return () => {
-      observer?.disconnect();
-      if (scriptRef.current) {
-        scriptRef.current.remove();
-        scriptRef.current = null;
-      }
-      const embedContainer = container.querySelector<HTMLElement>(".cognito");
-      embedContainer?.replaceChildren();
-      hasLoadedForm.current = false;
-    };
-  }, []);
-
   return (
     <main id="main-content" className="contact-page-bg min-h-screen">
       {/* Hero Section */}
@@ -180,15 +126,7 @@ export default function ContactPage() {
           </div>
           
           <div className="max-w-2xl mx-auto">
-            <div 
-              ref={formRef}
-            >
-              <div 
-                className="cognito" 
-                data-key="6bC91qZ8AUioh9fFRWGrCQ" 
-                data-form="15"
-              ></div>
-            </div>
+            <CognitoFormEmbed formKey="6bC91qZ8AUioh9fFRWGrCQ" formId="15" />
           </div>
         </section>
       </div>

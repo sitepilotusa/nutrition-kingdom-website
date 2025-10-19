@@ -1,5 +1,3 @@
-"use client";
-
 const shakes = [
   "Triple Berry",
   "PB & Greens",
@@ -109,12 +107,12 @@ export default function MenuPage() {
           </div>
           
           <div className="text-center mt-8">
-            <button 
-              onClick={() => document.getElementById('shake-boosters')?.scrollIntoView({ behavior: 'smooth' })}
+            <a
+              href="#shake-boosters"
               className="btn-green-outline inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold focus:outline-none focus-visible:ring-4 focus-visible:ring-green-200"
             >
               View Shake Boosters
-            </button>
+            </a>
           </div>
         </section>
 
@@ -144,12 +142,12 @@ export default function MenuPage() {
           </div>
           
           <div className="text-center mt-8">
-            <button 
-              onClick={() => document.getElementById('tea-boosters')?.scrollIntoView({ behavior: 'smooth' })}
+            <a
+              href="#tea-boosters"
               className="btn-green-outline inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold focus:outline-none focus-visible:ring-4 focus-visible:ring-green-200"
             >
               View Tea Boosters
-            </button>
+            </a>
           </div>
         </section>
 
@@ -180,12 +178,12 @@ export default function MenuPage() {
           </div>
           
           <div className="text-center mt-8">
-            <button 
-              onClick={() => document.getElementById('shake-boosters')?.scrollIntoView({ behavior: 'smooth' })}
+            <a
+              href="#shake-boosters"
               className="btn-green-outline inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold focus:outline-none focus-visible:ring-4 focus-visible:ring-green-200"
             >
               View Shake Boosters
-            </button>
+            </a>
           </div>
         </section>
 
@@ -221,12 +219,12 @@ export default function MenuPage() {
           </div>
           
           <div className="text-center mt-8">
-            <button 
-              onClick={() => document.getElementById('tea-boosters')?.scrollIntoView({ behavior: 'smooth' })}
+            <a
+              href="#tea-boosters"
               className="btn-green-outline inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold focus:outline-none focus-visible:ring-4 focus-visible:ring-green-200"
             >
               View Tea Boosters
-            </button>
+            </a>
           </div>
         </section>
 
@@ -261,12 +259,12 @@ export default function MenuPage() {
           </div>
           
           <div className="text-center mt-8">
-            <button 
-              onClick={() => document.getElementById('combo-deal')?.scrollIntoView({ behavior: 'smooth' })}
+            <a
+              href="#combo-deal"
               className="btn-combo inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold focus:outline-none focus-visible:ring-4 focus-visible:ring-red-200"
             >
               🎉 Make it a Combo & Save $2!
-            </button>
+            </a>
           </div>
         </section>
 
@@ -340,7 +338,7 @@ export default function MenuPage() {
         <div className="menu-divider"></div>
 
         {/* Boosters Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-0 pb-20">
+        <div id="combo-deal" className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-0 pb-20">
           {/* Shake Boosters */}
           <section id="shake-boosters">
             <h2 className="font-lemon gradient-brand text-2xl md:text-3xl font-bold mb-6 text-center">

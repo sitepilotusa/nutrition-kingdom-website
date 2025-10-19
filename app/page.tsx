@@ -68,7 +68,7 @@ export default function Home() {
               alt="Delicious protein shakes and healthy smoothies at Nutrition Kingdom Lakewood, Colorado"
               fill
               className="object-cover object-top rounded-2xl shadow-2xl"
-              sizes="(min-width: 768px) 50vw, 100vw"
+              sizes="(min-width: 1280px) 600px, (min-width: 1024px) 560px, (min-width: 768px) 50vw, 90vw"
               priority
             />
             <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/10"></div>
