@@ -37,11 +37,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.club"),
   applicationName: "Nutrition Kingdom",
   title: {
-    default: "Nutrition Kingdom | Protein Shakes & Energy Teas Lakewood CO",
+    default: "Nutrition Kingdom | Smoothies & Protein Shakes Lakewood CO",
     template: "%s | Nutrition Kingdom",
   },
   description:
-    "Visit Nutrition Kingdom in Lakewood, CO for protein shakes, energy teas, waffles, and açaí bowls. Fresh, healthy, and made to fuel your day.",
+    "Lakewood, CO smoothie bar for protein shakes near me. Nutrition Kingdom pours mega teas, waffles, and healthy bites to power your day.",
   alternates: {
     canonical: process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.club",
   },
@@ -68,9 +68,9 @@ export const metadata: Metadata = {
     email: false,
   },
   openGraph: {
-    title: "Nutrition Kingdom | Protein Shakes & Energy Teas Lakewood CO",
+    title: "Nutrition Kingdom | Smoothies & Protein Shakes Lakewood CO",
     description:
-      "Visit Nutrition Kingdom in Lakewood, CO for protein shakes, energy teas, waffles, and açaí bowls. Fresh, healthy, and made to fuel your day.",
+      "Lakewood, CO smoothie bar for protein shakes near me. Nutrition Kingdom pours mega teas, waffles, and healthy bites to power your day.",
     url: process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.club",
     siteName: "Nutrition Kingdom",
     images: [
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
         url: "/images/social-share-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Nutrition Kingdom - Protein Shakes & Mega Teas",
+        alt: "Nutrition Kingdom - Smoothies & Protein Shakes in Lakewood",
       },
     ],
     locale: "en_US",
@@ -86,9 +86,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nutrition Kingdom | Protein Shakes & Energy Teas Lakewood CO",
+    title: "Nutrition Kingdom | Smoothies & Protein Shakes Lakewood CO",
     description:
-      "Visit Nutrition Kingdom in Lakewood, CO for protein shakes, energy teas, waffles, and açaí bowls. Fresh, healthy, and made to fuel your day.",
+      "Lakewood, CO smoothie bar for protein shakes near me. Nutrition Kingdom pours mega teas, waffles, and healthy bites to power your day.",
     images: ["/images/social-share-image.jpg"],
   },
 };

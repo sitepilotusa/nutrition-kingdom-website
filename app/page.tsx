@@ -3,9 +3,9 @@ import Link from "next/link";
 import LazyGoogleMap from "@/components/LazyGoogleMap";
 
 export const metadata = {
-  title: "Protein Shakes & Mega Teas in Lakewood, CO",
+  title: "Smoothies & Protein Shakes in Lakewood, CO",
   description:
-    "Protein smoothies, energy teas, waffles, and açaí bowls in Lakewood, CO.",
+    "Searching for a protein shake near me in Lakewood, CO? Nutrition Kingdom crafts smoothies, mega teas, waffles, and healthy fuel to keep your day moving.",
 };
 
 export default function Home() {

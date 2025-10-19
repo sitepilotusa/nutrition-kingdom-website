@@ -1,20 +1,19 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Menu",
-  description: "Protein shakes, mega teas, açaí bowls, waffles, and healthy treats.",
+  title: "Menu - Smoothies & Protein Shakes Lakewood",
+  description: "Browse smoothies, protein shakes, and mega teas in Lakewood, CO at Nutrition Kingdom.",
   alternates: { canonical: "/menu" },
   openGraph: {
-    title: "Menu | Nutrition Kingdom",
-    description: "Protein shakes, mega teas, açaí bowls, waffles, and healthy treats.",
-    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.sitepilotpreflight.com"}/menu`,
+    title: "Menu - Smoothies & Protein Shakes Lakewood | Nutrition Kingdom",
+    description: "Browse smoothies, protein shakes, and mega teas in Lakewood, CO at Nutrition Kingdom.",
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.club"}/menu`,
   },
 };
 
 export default function MenuLayout({ children }: { children: React.ReactNode }) {
   return children;
 }
-
 
 
 
