@@ -16,6 +16,7 @@ export default function Header() {
         <nav aria-label="Primary" className="flex items-center gap-1 sm:gap-2">
           <Link
             href="/menu"
+            data-attr="nav-menu"
             className={`px-2 py-2 sm:px-3 rounded-lg text-sm sm:text-base font-medium transition-all duration-300 ${
               pathname === "/menu"
                 ? "nav-btn-active"
@@ -27,6 +28,7 @@ export default function Header() {
           </Link>
           <Link
             href="/contact"
+            data-attr="nav-contact"
             className={`px-2 py-2 sm:px-3 rounded-lg text-sm sm:text-base font-medium transition-all duration-300 ${
               pathname === "/contact"
                 ? "nav-btn-active"

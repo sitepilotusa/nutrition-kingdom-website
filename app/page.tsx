@@ -49,12 +49,14 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Link
                 href="/menu"
+                data-attr="hero-menu-cta"
                 className="btn-green inline-flex items-center justify-center rounded-xl px-8 py-4 text-lg font-semibold focus:outline-none focus-visible:ring-4 focus-visible:ring-green-200"
               >
                 Explore Our Menu
               </Link>
               <a
                 href="tel:+13038629470"
+                data-attr="hero-call-cta"
                 className="btn-green-outline inline-flex items-center justify-center rounded-xl px-8 py-4 text-lg font-semibold focus:outline-none focus-visible:ring-4 focus-visible:ring-green-200"
               >
                 Call (303) 862-9470

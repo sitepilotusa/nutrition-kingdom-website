@@ -34,3 +34,12 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## PostHog CTA Tracking
+
+PostHog autocapture is already enabled, so no extra scripts are required. We tag key CTAs with `data-attr` attributes so you can define Actions in the PostHog UI using simple CSS selectors:
+
+- Hero buttons: `a[data-attr="hero-menu-cta"]` and `a[data-attr="hero-call-cta"]`
+- Primary nav links: `a[data-attr="nav-menu"]` and `a[data-attr="nav-contact"]`
+
+Create Actions for these selectors (Insights → Actions → New Action) to track clicks, then build insights or dashboards from those Actions. After deploying, click each CTA once and confirm the `attr__data-attr` property in the captured event matches the expected value. Because these are static attributes, there is no runtime performance impact (no additional bundles or network calls).
