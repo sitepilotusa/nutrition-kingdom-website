@@ -151,6 +151,8 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://maps.google.com" />
         <link rel="preconnect" href="https://www.cognitoforms.com" />
         <link rel="dns-prefetch" href="https://www.cognitoforms.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <Script id="ld-json" type="application/ld+json">
           {JSON.stringify(localBusinessSchema)}
         </Script>
@@ -162,6 +164,19 @@ export default function RootLayout({
         <Footer />
         <HoursBadge />
         <Analytics />
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-V6S6N9ZR6R"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-V6S6N9ZR6R');
+          `}
+        </Script>
       </body>
     </html>
   );
