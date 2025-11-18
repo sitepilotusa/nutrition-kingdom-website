@@ -2,11 +2,13 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
+import { Suspense } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HoursBadge from "@/components/HoursBadge";
+import { PostHogProvider } from "@/components/PostHogProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -158,12 +160,16 @@ export default function RootLayout({
         </Script>
       </head>
       <body>
-        <a href="#main-content" className="skip-link">Skip to main content</a>
-        <Header />
-        {children}
-        <Footer />
-        <HoursBadge />
-        <Analytics />
+        <Suspense fallback={null}>
+          <PostHogProvider>
+            <a href="#main-content" className="skip-link">Skip to main content</a>
+            <Header />
+            {children}
+            <Footer />
+            <HoursBadge />
+            <Analytics />
+          </PostHogProvider>
+        </Suspense>
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-V6S6N9ZR6R"
