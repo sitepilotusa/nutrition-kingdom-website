@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
-    "next": "15.5.2",
+    "next": "15.5.12",
     "posthog-js": "^1.293.0",
     "posthog-node": "^5.11.2",
     "react": "19.1.0",
@@ -23,7 +23,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.5.2",
+    "eslint-config-next": "15.5.12",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
