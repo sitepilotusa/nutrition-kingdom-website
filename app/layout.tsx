@@ -138,6 +138,123 @@ const localBusinessSchema = {
   ],
 };
 
+const SITEPILOT_POSTHOG_TOKEN = "phc_n6Lz7n84pwzx3znBRdr6WizGostEeXkmnfCykSdzLg69";
+const SITEPILOT_POSTHOG_HOST = "https://us.i.posthog.com";
+const SITEPILOT_ANALYTICS_METADATA = {
+  sitepilot_client_id: "nutrition-kingdom",
+  sitepilot_client_name: "Nutrition Kingdom",
+  sitepilot_site_domain: "nutritionkingdom.club",
+  sitepilot_environment: "production",
+};
+
+function buildSitePilotPageviewScript() {
+  return `
+    (() => {
+      const token = ${JSON.stringify(SITEPILOT_POSTHOG_TOKEN)};
+      const endpoint = ${JSON.stringify(SITEPILOT_POSTHOG_HOST + "/e/")};
+      const siteMetadata = ${JSON.stringify(SITEPILOT_ANALYTICS_METADATA)};
+      const distinctIdKey = "sitepilot_posthog_distinct_id";
+      const sessionIdKey = "sitepilot_posthog_session_id";
+      let lastCapturedUrl = null;
+
+      function randomId() {
+        return window.crypto && "randomUUID" in window.crypto
+          ? window.crypto.randomUUID()
+          : String(Date.now()) + "-" + Math.random().toString(16).slice(2);
+      }
+
+      function getStoredId(storage, key) {
+        try {
+          const existing = storage.getItem(key);
+          if (existing) return existing;
+          const next = randomId();
+          storage.setItem(key, next);
+          return next;
+        } catch {
+          return randomId();
+        }
+      }
+
+      function getDeviceType() {
+        const ua = navigator.userAgent || "";
+        if (/ipad|tablet|playbook|silk/i.test(ua)) return "Tablet";
+        if (/mobile|iphone|ipod|android.*mobile|blackberry|phone/i.test(ua)) return "Mobile";
+        return "Desktop";
+      }
+
+      function capturePageview() {
+        const currentUrl = window.location.href;
+        if (currentUrl === lastCapturedUrl) return;
+        lastCapturedUrl = currentUrl;
+
+        const referrer = document.referrer || "";
+        let referringDomain = "";
+        try {
+          referringDomain = referrer ? new URL(referrer).hostname : "";
+        } catch {
+          referringDomain = "";
+        }
+
+        const payload = JSON.stringify({
+          api_key: token,
+          event: "$pageview",
+          distinct_id: getStoredId(window.localStorage, distinctIdKey),
+          properties: {
+            token,
+            $current_url: currentUrl,
+            $host: window.location.hostname,
+            $pathname: window.location.pathname,
+            $lib: "sitepilot-direct-pageview",
+            $session_id: getStoredId(window.sessionStorage, sessionIdKey),
+            $device_type: getDeviceType(),
+            $raw_user_agent: navigator.userAgent,
+            $browser_language: navigator.language,
+            $browser_language_prefix: navigator.language ? navigator.language.split("-")[0] : "",
+            $referrer: referrer,
+            $referring_domain: referringDomain,
+            $screen_height: window.screen.height,
+            $screen_width: window.screen.width,
+            $viewport_height: window.innerHeight,
+            $viewport_width: window.innerWidth,
+            title: document.title,
+            ...siteMetadata,
+          },
+        });
+
+        if (navigator.sendBeacon) {
+          const sent = navigator.sendBeacon(endpoint, new Blob([payload], { type: "application/json" }));
+          if (sent) return;
+        }
+
+        fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: payload,
+          keepalive: true,
+          mode: "cors",
+        }).catch(() => {});
+      }
+
+      capturePageview();
+
+      const originalPushState = history.pushState;
+      const originalReplaceState = history.replaceState;
+      history.pushState = function pushState() {
+        const result = originalPushState.apply(this, arguments);
+        setTimeout(capturePageview, 0);
+        return result;
+      };
+      history.replaceState = function replaceState() {
+        const result = originalReplaceState.apply(this, arguments);
+        setTimeout(capturePageview, 0);
+        return result;
+      };
+      window.addEventListener("popstate", () => setTimeout(capturePageview, 0));
+    })();
+  `;
+}
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -160,6 +277,11 @@ export default function RootLayout({
         </Script>
       </head>
       <body>
+        <Script
+          id="sitepilot-posthog-pageviews"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: buildSitePilotPageviewScript() }}
+        />
         <Suspense fallback={null}>
           <PostHogProvider>
             <a href="#main-content" className="skip-link">Skip to main content</a>
