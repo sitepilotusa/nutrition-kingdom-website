@@ -182,42 +182,47 @@ function buildSitePilotPageviewScript() {
         return "Desktop";
       }
 
-      function capturePageview() {
-        const currentUrl = window.location.href;
-        if (currentUrl === lastCapturedUrl) return;
-        lastCapturedUrl = currentUrl;
-
-        const referrer = document.referrer || "";
-        let referringDomain = "";
+      function getReferringDomain(referrer) {
         try {
-          referringDomain = referrer ? new URL(referrer).hostname : "";
+          return referrer ? new URL(referrer).hostname : "";
         } catch {
-          referringDomain = "";
+          return "";
         }
+      }
 
+      function getBaseProperties(lib) {
+        const referrer = document.referrer || "";
+        return {
+          token,
+          $current_url: window.location.href,
+          $host: window.location.hostname,
+          $pathname: window.location.pathname,
+          $lib: lib,
+          $session_id: getStoredId(window.sessionStorage, sessionIdKey),
+          $device_type: getDeviceType(),
+          $raw_user_agent: navigator.userAgent,
+          $browser_language: navigator.language,
+          $browser_language_prefix: navigator.language ? navigator.language.split("-")[0] : "",
+          $referrer: referrer,
+          $referring_domain: getReferringDomain(referrer),
+          $screen_height: window.screen.height,
+          $screen_width: window.screen.width,
+          $viewport_height: window.innerHeight,
+          $viewport_width: window.innerWidth,
+          title: document.title,
+          ...siteMetadata,
+        };
+      }
+
+      function sendEvent(eventName, properties, lib) {
+        if (!eventName || typeof eventName !== "string") return;
         const payload = JSON.stringify({
           api_key: token,
-          event: "$pageview",
+          event: eventName,
           distinct_id: getStoredId(window.localStorage, distinctIdKey),
           properties: {
-            token,
-            $current_url: currentUrl,
-            $host: window.location.hostname,
-            $pathname: window.location.pathname,
-            $lib: "sitepilot-direct-pageview",
-            $session_id: getStoredId(window.sessionStorage, sessionIdKey),
-            $device_type: getDeviceType(),
-            $raw_user_agent: navigator.userAgent,
-            $browser_language: navigator.language,
-            $browser_language_prefix: navigator.language ? navigator.language.split("-")[0] : "",
-            $referrer: referrer,
-            $referring_domain: referringDomain,
-            $screen_height: window.screen.height,
-            $screen_width: window.screen.width,
-            $viewport_height: window.innerHeight,
-            $viewport_width: window.innerWidth,
-            title: document.title,
-            ...siteMetadata,
+            ...getBaseProperties(lib),
+            ...(properties && typeof properties === "object" ? properties : {}),
           },
         });
 
@@ -234,6 +239,48 @@ function buildSitePilotPageviewScript() {
           mode: "cors",
         }).catch(() => {});
       }
+
+      function capturePageview() {
+        const currentUrl = window.location.href;
+        if (currentUrl === lastCapturedUrl) return;
+        lastCapturedUrl = currentUrl;
+        sendEvent("$pageview", {}, "sitepilot-direct-pageview");
+      }
+
+      function parseInlineProperties(raw) {
+        if (!raw) return {};
+        try {
+          const parsed = JSON.parse(raw);
+          return parsed && typeof parsed === "object" ? parsed : {};
+        } catch {
+          return {};
+        }
+      }
+
+      function captureCustomEvent(eventName, properties) {
+        sendEvent(eventName, properties || {}, "sitepilot-direct-custom-event");
+      }
+
+      window.sitepilotTrack = captureCustomEvent;
+
+      document.addEventListener("click", (event) => {
+        const clicked = event.target instanceof Element
+          ? event.target.closest("[data-sitepilot-event]")
+          : null;
+        if (!clicked) return;
+
+        const eventName = clicked.getAttribute("data-sitepilot-event");
+        const href = clicked instanceof HTMLAnchorElement ? clicked.href : clicked.getAttribute("href") || "";
+        const section = clicked.closest("section[id]");
+        captureCustomEvent(eventName, {
+          ...parseInlineProperties(clicked.getAttribute("data-sitepilot-properties")),
+          cta_text: (clicked.textContent || "").trim().replace(/\s+/g, " ").slice(0, 120),
+          destination_url: href,
+          page_path: window.location.pathname,
+          page_section: section ? section.id : "",
+          element_tag: clicked.tagName.toLowerCase(),
+        });
+      });
 
       capturePageview();
 
