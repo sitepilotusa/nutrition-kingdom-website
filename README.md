@@ -39,7 +39,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 PostHog autocapture is already enabled, so no extra scripts are required. We tag key CTAs with `data-attr` attributes so you can define Actions in the PostHog UI using simple CSS selectors:
 
-- Hero buttons: `a[data-attr="hero-menu-cta"]` and `a[data-attr="hero-call-cta"]`
+- Hero buttons: `a[data-attr="hero-menu-cta"]` and `a[data-attr="hero-order-cta"]`
 - Primary nav links: `a[data-attr="nav-menu"]` and `a[data-attr="nav-contact"]`
 
 Create Actions for these selectors (Insights → Actions → New Action) to track clicks, then build insights or dashboards from those Actions. After deploying, click each CTA once and confirm the `attr__data-attr` property in the captured event matches the expected value. Because these are static attributes, there is no runtime performance impact (no additional bundles or network calls).

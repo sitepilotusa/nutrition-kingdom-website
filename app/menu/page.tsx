@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const shakes = [
   "Triple Berry",
   "PB & Greens",
@@ -15,23 +17,6 @@ const teas = [
   "Captain America", "Dragonfruit", "Strawberry Açaí", "Colorado Sunrise", 
   "Cucumber Lime", "Mexican Lollipop", "Arnold Palmer", "Peach Passion", 
   "Black Pearl", "Cucumber Watermelon"
-];
-
-const fallShakes = [
-  "Apple Pie", "Pumpkin Spice Cheesecake", "Pumpkin Mocha", 
-  "Pumpkin Praline", "Oatmeal Cookie", "Iced Carrot Cake"
-];
-
-const fallTeas = [
-  { name: "Apple Candy", description: "(Pom, Cherry & Green Apple)" },
-  { name: "Cran Pom", description: "" },
-  { name: "Cherry Blackberry Mojito", description: "" },
-  { name: "Pineapple Cider", description: "" },
-  { name: "Sour Patch", description: "(Raspberry & Grape)" },
-  { name: "Hocus Pocus", description: "(Grape & Orange)" },
-  { name: "Tropical Twist Detox", description: "Non-caffeinated" },
-  { name: "Strawberry Açaí CR7", description: "Non-caffeinated" },
-  { name: "Mango Fuel Me Up", description: "Non-caffeinated" }
 ];
 
 const acaiBowls = [
@@ -153,78 +138,25 @@ export default function MenuPage() {
 
         <div className="menu-divider"></div>
 
-        {/* Fall Shakes */}
+        {/* Seasonal Menu */}
         <section className="mb-16">
           <div className="text-center mb-8">
             <h2 className="font-lemon gradient-brand text-3xl md:text-4xl font-bold mb-4">
-              Fall Protein Shakes
+              Summer Seasonal Menu
             </h2>
-            <p className="text-gray-600 mb-4">Low carb, low sugar</p>
-            <div className="pricing-badge">
-              <span className="text-lg font-semibold">$8.50 Kids • $10.50 Regular • $12.50 Large • $14.50 Giant</span>
-            </div>
+            <p className="text-gray-600">
+              Limited-time shakes, specialty teas, boosters, and protein waffles.
+            </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {fallShakes.map((shake, index) => (
-              <div key={index} className="menu-card relative">
-                {(shake === "Apple Pie" || shake === "Oatmeal Cookie") && (
-                  <div className="popular-badge">
-                    <span className="text-xs font-bold">⭐ POPULAR</span>
-                  </div>
-                )}
-                <h3 className="font-semibold text-gray-800 text-lg">{shake}</h3>
-              </div>
-            ))}
-          </div>
-          
-          <div className="text-center mt-8">
-            <a
-              href="#shake-boosters"
-              className="btn-green-outline inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold focus:outline-none focus-visible:ring-4 focus-visible:ring-green-200"
-            >
-              View Shake Boosters
-            </a>
-          </div>
-        </section>
-
-        <div className="menu-divider"></div>
-
-        {/* Fall Seasonal Teas */}
-        <section className="mb-16">
-          <div className="text-center mb-8">
-            <h2 className="font-lemon gradient-brand text-3xl md:text-4xl font-bold mb-4">
-              Fall Seasonal Teas
-            </h2>
-            <p className="text-gray-600 mb-4">Ginseng, B vitamins + collagen</p>
-            <div className="pricing-badge">
-              <span className="text-lg font-semibold">$10.50 One Size</span>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {fallTeas.map((tea, index) => (
-              <div key={index} className="menu-card menu-card-vertical relative">
-                {tea.name === "Sour Patch" && (
-                  <div className="popular-badge">
-                    <span className="text-xs font-bold">⭐ POPULAR</span>
-                  </div>
-                )}
-                <div className="text-center">
-                  <h3 className="font-semibold text-gray-800 text-lg">{tea.name}</h3>
-                  {tea.description && (
-                    <p className="text-gray-600 text-sm mt-2">{tea.description}</p>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="text-center mt-8">
-            <a
-              href="#tea-boosters"
-              className="btn-green-outline inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold focus:outline-none focus-visible:ring-4 focus-visible:ring-green-200"
-            >
-              View Tea Boosters
-            </a>
+          <div className="mx-auto max-w-4xl overflow-hidden rounded-2xl shadow-2xl ring-1 ring-black/10">
+            <Image
+              src="/images/summer-seasonal-menu.png"
+              alt="Nutrition Kingdom summer seasonal menu featuring shakes, specialty teas, boosters, and protein waffles"
+              width={1024}
+              height={1536}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 896px, calc(100vw - 3rem)"
+            />
           </div>
         </section>
 

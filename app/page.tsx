@@ -55,11 +55,13 @@ export default function Home() {
                 Explore Our Menu
               </Link>
               <a
-                href="tel:+13038629470"
-                data-attr="hero-call-cta"
+                href="https://zingmyorder.com/restaurants/nutrition-kingdom-1535-s-kipling-pkwy-unit-g-lakewood-co-80232-usa"
+                data-attr="hero-order-cta"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-green-outline inline-flex items-center justify-center rounded-xl px-8 py-4 text-lg font-semibold focus:outline-none focus-visible:ring-4 focus-visible:ring-green-200"
               >
-                Call (303) 862-9470
+                Order Now
               </a>
             </div>
           </div>
