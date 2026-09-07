@@ -1,0 +1,32 @@
+# Codex settings for the site agent in this repo. Loaded only when the repo is trusted.
+# Secrets never go here. Put them in .env.agent (gitignored); the run script exports them.
+
+# model and model_reasoning_effort inherit from ~/.codex/config.toml unless set here.
+# model = "gpt-5.6"
+# model_reasoning_effort = "high"
+
+approval_policy = "never"
+sandbox_mode = "workspace-write"
+web_search = "live"
+project_doc_fallback_filenames = ["AGENTS.md"]
+
+[sandbox_workspace_write]
+network_access = true
+
+[shell_environment_policy]
+inherit = "core"
+filters = { "PATH" = "include", "HOME" = "include", "POSTHOG_*" = "include", "DATAFORSEO_*" = "include", "GSC_*" = "include" }
+
+[history]
+persistence = "save-all"
+
+# Optional per-client evidence sources. Uncomment what this client actually has.
+
+# [mcp_servers.posthog]
+# url = "https://mcp.posthog.com/mcp?mode=tools&readonly=true"
+# bearer_token_env_var = "POSTHOG_API_KEY"
+# enabled_tools = ["execute-sql"]
+
+# [mcp_servers.dataforseo]
+# url = "https://mcp.dataforseo.com/http"
+# bearer_token_env_var = "DATAFORSEO_BASIC_AUTH"
