@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact - Nutrition Kingdom Lakewood Smoothies",
+  title: "Contact Our Lakewood Smoothie Shop",
   description: "Connect with Nutrition Kingdom in Lakewood, CO for smoothies and protein shakes near you.",
   alternates: { canonical: "/contact" },
   openGraph: {
@@ -14,6 +14,5 @@ export const metadata: Metadata = {
 export default function ContactLayout({ children }: { children: React.ReactNode }) {
   return children;
 }
-
 
 

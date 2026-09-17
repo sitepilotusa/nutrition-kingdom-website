@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Menu - Smoothies & Protein Shakes Lakewood",
+  title: "Lakewood Smoothie & Protein Shake Menu",
   description: "Browse smoothies, protein shakes, and mega teas in Lakewood, CO at Nutrition Kingdom.",
   alternates: { canonical: "/menu" },
   openGraph: {
@@ -14,6 +14,5 @@ export const metadata: Metadata = {
 export default function MenuLayout({ children }: { children: React.ReactNode }) {
   return children;
 }
-
 
 

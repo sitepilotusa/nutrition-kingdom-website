@@ -1,0 +1,199 @@
+{
+ "domain": "nutritionkingdom.club",
+ "cost_usd": 0.016,
+ "keywords": [
+  {
+   "keyword": "protein shake near me",
+   "location": "Lakewood,Colorado,United States",
+   "our_position": 9,
+   "our_url": "https://nutritionkingdom.club/",
+   "top5": [
+    {
+     "pos": 1,
+     "domain": "www.yelp.com",
+     "title": "TOP 10 BEST Protein Shake in Denver, CO - Updated 2026"
+    },
+    {
+     "pos": 2,
+     "domain": "www.doordash.com",
+     "title": "Best Protein Shake Near Me"
+    },
+    {
+     "pos": 3,
+     "domain": "locations.tropicalsmoothiecafe.com",
+     "title": "Locations CO Wheat Ridge 3753 Wadsworth Boulevard"
+    },
+    {
+     "pos": 4,
+     "domain": "locations.smoothieking.com",
+     "title": "Smoothie King 1154 S Colorado Blvd, Denver CO 80246"
+    },
+    {
+     "pos": 5,
+     "domain": "summitnutritionlittleton.com",
+     "title": "Summit Littleton"
+    }
+   ],
+   "local_pack": [
+    {
+     "title": "Nutrition Kingdom",
+     "rating": 4.8
+    },
+    {
+     "title": "Alameda Nutrition",
+     "rating": 4.8
+    },
+    {
+     "title": "Herbalife Belmar Nutrition",
+     "rating": 4.6
+    }
+   ]
+  },
+  {
+   "keyword": "smoothies lakewood co",
+   "location": "Lakewood,Colorado,United States",
+   "our_position": 3,
+   "our_url": "https://nutritionkingdom.club/",
+   "top5": [
+    {
+     "pos": 1,
+     "domain": "locations.jamba.com",
+     "title": "Jamba Belmar | Smoothie Bowls & Juices"
+    },
+    {
+     "pos": 2,
+     "domain": "www.tripadvisor.com",
+     "title": "THE BEST Juice & Smoothies in Lakewood ..."
+    },
+    {
+     "pos": 3,
+     "domain": "nutritionkingdom.club",
+     "title": "Smoothies & Protein Shakes in Lakewood, CO"
+    },
+    {
+     "pos": 4,
+     "domain": "www.yelp.com",
+     "title": "TOP 10 BEST Acai Bowl in Lakewood, CO - Updated 2026"
+    },
+    {
+     "pos": 5,
+     "domain": "threebestrated.com",
+     "title": "3 Best Smoothie and Juice Bars in Lakewood, CO"
+    }
+   ],
+   "local_pack": [
+    {
+     "title": "Nutrition Kingdom",
+     "rating": 4.8
+    },
+    {
+     "title": "20th Ave. Nutrition",
+     "rating": 4.6
+    },
+    {
+     "title": "Jamba",
+     "rating": 3.9
+    }
+   ]
+  },
+  {
+   "keyword": "mega tea lakewood",
+   "location": "Lakewood,Colorado,United States",
+   "error": "40106 Task completed with partial results. Some pages could not be retrieved after several retry attempts. You have not been charged for the pages that were not returned."
+  },
+  {
+   "keyword": "nutrition club lakewood co",
+   "location": "Lakewood,Colorado,United States",
+   "our_position": 1,
+   "our_url": "https://nutritionkingdom.club/",
+   "top5": [
+    {
+     "pos": 1,
+     "domain": "nutritionkingdom.club",
+     "title": "Smoothies & Protein Shakes in Lakewood, CO"
+    },
+    {
+     "pos": 2,
+     "domain": "www.20thavenutrition.com",
+     "title": "20th Avenue Nutrition"
+    },
+    {
+     "pos": 3,
+     "domain": "www.yelp.com",
+     "title": "NUTRITION KINGDOM - Updated September 2026"
+    },
+    {
+     "pos": 4,
+     "domain": "www.facebook.com",
+     "title": "20thave Nutrition-Lakewood"
+    },
+    {
+     "pos": 5,
+     "domain": "www.lakewoodco.gov",
+     "title": "Nutrition Services - City of Lakewood, CO"
+    }
+   ],
+   "local_pack": [
+    {
+     "title": "Alameda Nutrition",
+     "rating": 4.8
+    },
+    {
+     "title": "Morrison Nutrition- HERBALIFE NUTRITION CLUB",
+     "rating": 4.8
+    },
+    {
+     "title": "Nutrition Kingdom",
+     "rating": 4.8
+    }
+   ]
+  },
+  {
+   "keyword": "healthy smoothies near me",
+   "location": "Lakewood,Colorado,United States",
+   "our_position": 9,
+   "our_url": "https://nutritionkingdom.club/",
+   "top5": [
+    {
+     "pos": 1,
+     "domain": "locations.jamba.com",
+     "title": "Jamba Belmar | Smoothie Bowls & Juices"
+    },
+    {
+     "pos": 2,
+     "domain": "www.yelp.com",
+     "title": "TOP 10 BEST Smoothie in Denver, CO - Updated 2026"
+    },
+    {
+     "pos": 3,
+     "domain": "www.tripadvisor.com",
+     "title": "THE BEST Juice & Smoothies in Lakewood ..."
+    },
+    {
+     "pos": 4,
+     "domain": "locations.tropicalsmoothiecafe.com",
+     "title": "Locations CO Wheat Ridge 3753 Wadsworth Boulevard"
+    },
+    {
+     "pos": 5,
+     "domain": "locations.smoothieking.com",
+     "title": "Smoothie King 1154 S Colorado Blvd, Denver CO 80246"
+    }
+   ],
+   "local_pack": [
+    {
+     "title": "Nutrition Kingdom",
+     "rating": 4.8
+    },
+    {
+     "title": "Twisted Smoothie",
+     "rating": 4.9
+    },
+    {
+     "title": "Natuur | Sloan's Lake",
+     "rating": 4.5
+    }
+   ]
+  }
+ ]
+}
