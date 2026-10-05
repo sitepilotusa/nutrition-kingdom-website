@@ -301,7 +301,6 @@ function buildSitePilotPageviewScript() {
   `;
 }
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -315,8 +314,6 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="preconnect" href="https://maps.google.com" />
         <link rel="dns-prefetch" href="https://maps.google.com" />
-        <link rel="preconnect" href="https://www.cognitoforms.com" />
-        <link rel="dns-prefetch" href="https://www.cognitoforms.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <Script id="ld-json" type="application/ld+json">

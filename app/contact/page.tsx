@@ -1,5 +1,5 @@
 import LazyGoogleMap from "@/components/LazyGoogleMap";
-import CognitoFormEmbed from "@/components/CognitoFormEmbed";
+import ContactForm from "@/components/ContactForm";
 
 export default function ContactPage() {
   return (
@@ -126,7 +126,7 @@ export default function ContactPage() {
           </div>
           
           <div className="max-w-2xl mx-auto">
-            <CognitoFormEmbed formKey="6bC91qZ8AUioh9fFRWGrCQ" formId="15" />
+            <ContactForm />
           </div>
         </section>
       </div>
