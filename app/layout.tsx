@@ -107,31 +107,10 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Nutrition Kingdom",
+  description: "Smoothie, protein shake, mega tea, and waffle shop in Lakewood, Colorado.",
   telephone: "+1-303-862-9470",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.club",
   image: `${process.env.NEXT_PUBLIC_SITE_URL || "https://nutritionkingdom.club"}/images/social-share-image.jpg`,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "1535 S Kipling Pkwy Unit G",
-    addressLocality: "Lakewood",
-    addressRegion: "CO",
-    postalCode: "80232",
-    addressCountry: "US",
-  },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "08:00",
-      closes: "16:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Saturday", "Sunday"],
-      opens: "09:00",
-      closes: "14:00",
-    },
-  ],
   sameAs: [
     "https://www.instagram.com/nutritionkingdomlakewood/",
     "https://www.facebook.com/NutritionKingdomLakewood",
@@ -319,9 +298,13 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.cognitoforms.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <Script id="ld-json" type="application/ld+json">
-          {JSON.stringify(localBusinessSchema)}
-        </Script>
+        <script
+          id="ld-json"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema).replace(/</g, "\\u003c"),
+          }}
+        />
       </head>
       <body>
         <Script
