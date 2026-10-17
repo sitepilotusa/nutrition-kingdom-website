@@ -1,0 +1,199 @@
+{
+ "domain": "nutritionkingdom.club",
+ "cost_usd": 0.016,
+ "keywords": [
+  {
+   "keyword": "protein shake near me",
+   "location": "Lakewood,Colorado,United States",
+   "our_position": null,
+   "our_url": null,
+   "top5": [
+    {
+     "pos": 1,
+     "domain": "www.yelp.com",
+     "title": "TOP 10 BEST Protein Shakes in Denver, CO - Updated 2026"
+    },
+    {
+     "pos": 2,
+     "domain": "www.yelp.com",
+     "title": "Best Protein Shake near Colorado Discount Nutrition ..."
+    },
+    {
+     "pos": 3,
+     "domain": "www.yelp.com",
+     "title": "TOP 10 BEST Protein Shakes in Montgomery, AL"
+    },
+    {
+     "pos": 4,
+     "domain": "www.yelp.com",
+     "title": "TOP 10 BEST Protein Shakes in Spartanburg, SC"
+    },
+    {
+     "pos": 5,
+     "domain": "www.yelp.com",
+     "title": "TOP 10 BEST Protein Shake in Athens, AL - Updated 2026"
+    }
+   ],
+   "local_pack": [
+    {
+     "title": "Alameda Nutrition",
+     "rating": 4.8
+    },
+    {
+     "title": "Nutrition Kingdom",
+     "rating": 4.8
+    },
+    {
+     "title": "20th Ave. Nutrition - herbalife nutrition club",
+     "rating": 4.6
+    }
+   ]
+  },
+  {
+   "keyword": "smoothies lakewood co",
+   "location": "Lakewood,Colorado,United States",
+   "our_position": 2,
+   "our_url": "https://nutritionkingdom.club/",
+   "top5": [
+    {
+     "pos": 1,
+     "domain": "www.tripadvisor.com",
+     "title": "THE BEST Juice & Smoothies in Lakewood ..."
+    },
+    {
+     "pos": 2,
+     "domain": "nutritionkingdom.club",
+     "title": "Smoothies & Protein Shakes in Lakewood, CO"
+    },
+    {
+     "pos": 3,
+     "domain": "locations.jamba.com",
+     "title": "Smoothie Bowls & Juices - Jamba Lakewood, CO"
+    },
+    {
+     "pos": 4,
+     "domain": "www.yelp.com",
+     "title": "THE BEST 10 JUICE BARS & SMOOTHIES IN LAKEWOOD ..."
+    },
+    {
+     "pos": 5,
+     "domain": "threebestrated.com",
+     "title": "3 Best Smoothie and Juice Bars in Lakewood, CO"
+    }
+   ],
+   "local_pack": [
+    {
+     "title": "Nutrition Kingdom",
+     "rating": 4.8
+    },
+    {
+     "title": "20th Ave. Nutrition - herbalife nutrition club",
+     "rating": 4.6
+    },
+    {
+     "title": "Alameda Nutrition",
+     "rating": 4.8
+    }
+   ]
+  },
+  {
+   "keyword": "mega tea lakewood",
+   "location": "Lakewood,Colorado,United States",
+   "error": "40101 Internal SE Server Error."
+  },
+  {
+   "keyword": "nutrition club lakewood co",
+   "location": "Lakewood,Colorado,United States",
+   "our_position": null,
+   "our_url": null,
+   "top5": [
+    {
+     "pos": 1,
+     "domain": "www.healthprofs.com",
+     "title": "Registered Dietitian Nutrition and Diet Lakewood, CO"
+    },
+    {
+     "pos": 2,
+     "domain": "www.yellowpages.com",
+     "title": "Health diet food products in Lakewood, CO"
+    },
+    {
+     "pos": 3,
+     "domain": "www.facebook.com",
+     "title": "The NIK Nutrition | Wheat Ridge CO"
+    },
+    {
+     "pos": 4,
+     "domain": "www.atly.com",
+     "title": "Morrison Nutrition- HERBALIFE NUTRITION CLUB in Denver"
+    },
+    {
+     "pos": 5,
+     "domain": "www.mapquest.com",
+     "title": "Franklin, Amy, 355 Union Blvd, #250, Lakewood, CO ..."
+    }
+   ],
+   "local_pack": [
+    {
+     "title": "Alameda Nutrition",
+     "rating": 4.8
+    },
+    {
+     "title": "20th Ave. Nutrition - herbalife nutrition club",
+     "rating": 4.6
+    },
+    {
+     "title": "Nutrition Kingdom",
+     "rating": 4.8
+    }
+   ]
+  },
+  {
+   "keyword": "healthy smoothies near me",
+   "location": "Lakewood,Colorado,United States",
+   "our_position": null,
+   "our_url": null,
+   "top5": [
+    {
+     "pos": 1,
+     "domain": "www.yelp.com",
+     "title": "THE BEST 10 JUICE BARS & SMOOTHIES NEAR ..."
+    },
+    {
+     "pos": 2,
+     "domain": "www.yelp.com",
+     "title": "The Best 10 Juice Bars & Smoothies near Downtown ..."
+    },
+    {
+     "pos": 3,
+     "domain": "www.yelp.com",
+     "title": "TOP 10 BEST Smoothie Places in Indianapolis, IN"
+    },
+    {
+     "pos": 4,
+     "domain": "m.yelp.com",
+     "title": "Best Juice Bars & Smoothies near Oklahoma City, OK"
+    },
+    {
+     "pos": 5,
+     "domain": "m.yelp.com",
+     "title": "THE BEST 10 JUICE BARS & SMOOTHIES NEAR W ..."
+    }
+   ],
+   "local_pack": [
+    {
+     "title": "Nutrition Kingdom",
+     "rating": 4.8
+    },
+    {
+     "title": "Twisted Smoothie",
+     "rating": 4.9
+    },
+    {
+     "title": "20th Ave. Nutrition - herbalife nutrition club",
+     "rating": 4.6
+    }
+   ]
+  }
+ ]
+}
